@@ -2,10 +2,10 @@
 
 # User variables
 #GCP_SVC_ACCOUNT_JSON=
-GCP_PROJECT="gcp-project"
-GCR_IMAGES_FILTER="prefix-"
+#GCP_PROJECT="gcp-project"
+#GCR_IMAGES_FILTER="prefix-"
 # Exclude tags like master, develop, 1.0, v1.0
-GCR_TAGS_EXCLUDE="latest master develop ^[0-9] ^v[0-9]"
+#GCR_TAGS_EXCLUDE="latest master develop ^[0-9] ^v[0-9]"
 
 # Technical variables
 GCP_SVC_ACCOUNT_FILE=svc.json
