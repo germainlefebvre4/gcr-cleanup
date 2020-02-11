@@ -1,0 +1,23 @@
+name: Docker Bash
+
+on:
+  push:
+    branches:
+      - feat/bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Extract branch name
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/} | tr '[|/]' '-')"
+      id: git
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag germainlefebvre4/gcr-cleanup:${{ steps.git.outputs.branch }}
+    - name: Publish to Docker Repository
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: germainlefebvre4/gcr-cleanup:${{ steps.git.outputs.branch }}
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
