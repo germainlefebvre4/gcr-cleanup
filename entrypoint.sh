@@ -12,7 +12,7 @@ GCP_SVC_ACCOUNT_FILE=svc.json
 GCR_REGISTRY="eu.gcr.io/${GCP_PROJECT}"
 
 # Uuncompress svc account in container
-#echo "${GCP_SVC_ACCOUNT_JSON}" | tr ' ' '\n'  | base64 -d > ${GCP_SVC_ACCOUNT_FILE}
+echo "${GCP_SVC_ACCOUNT_JSON}" | tr ' ' '\n'  | base64 -d > ${GCP_SVC_ACCOUNT_FILE}
 
 # Login to gcloud
 gcloud auth activate-service-account --project=${GCP_PROJECT} --key-file=${GCP_SVC_ACCOUNT_FILE}
