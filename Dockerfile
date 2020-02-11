@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM google/cloud-sdk:slim
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod u+x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
